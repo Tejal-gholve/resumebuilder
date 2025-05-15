@@ -1,0 +1,256 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Theme Colors */
+:root {
+    --primary: #1E3A8A;
+    --secondary: #2563EB;
+    --background: #F8FAFC;
+    --text: #1E293B;
+    --highlight: #60A5FA;
+}
+
+/* Main Layout */
+.app-container {
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+/* Control Panel - Positioned on the Left */
+.controls-panel {
+    width: 250px;
+    background: var(--primary);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    position: sticky;
+    top: 20px;
+    height: fit-content;
+    text-align: center; /* Ensures text is visible */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow for better visibility */
+    transition: all 0.3s ease-in-out;
+    font-family: 'Poppins', sans-serif; /* Modern font for better readability */
+}
+
+/* Title Styling */
+.controls-panel h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Input & Select Box Styling */
+.controls-panel input,
+.controls-panel select,
+.controls-panel textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    background: #f9f9f9;
+    color: #333;
+    transition: border 0.3s ease-in-out;
+}
+
+.controls-panel input:focus,
+.controls-panel select:focus,
+.controls-panel textarea:focus {
+    border: 1px solid var(--accent);
+    outline: none;
+}
+
+/* Button Styling */
+.controls-panel button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background: var(--secondary);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.2s;
+}
+
+.controls-panel button:hover {
+    background: var(--accent);
+    transform: scale(1.05);
+}
+
+/* Sections in the Control Panel */
+.controls-section {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1); /* Slight transparent effect */
+}
+
+/* Labels for Input Fields */
+.controls-panel label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 5px;
+    text-align: left;
+}
+
+/* File Upload Styling */
+.controls-panel input[type="file"] {
+    padding: 5px;
+    background: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+/* Scrollbar Customization */
+.controls-panel::-webkit-scrollbar {
+    width: 8px;
+}
+
+.controls-panel::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+}
+
+.controls-panel::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .controls-panel {
+        width: 100%;
+        position: relative;
+        top: auto;
+        border-radius: 0;
+    }
+}
+
+
+/* Ensure the section title in the control panel is visible */
+.controls-panel .section-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 15px;
+}
+
+
+/* Resume Container */
+.resume-container {
+    flex: 1;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    border: 3px solid var(--primary);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    max-width: 800px;
+    margin: auto;
+}
+
+/* Resume Header */
+.resume-header {
+    text-align: center;
+    padding: 25px;
+    background: linear-gradient(135deg, var(--primary) 30%, var(--secondary) 100%);
+    color: white;
+    border-radius: 12px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative line effect */
+.resume-header::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 60%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 5px;
+    transform: translateX(-50%);
+}
+
+/* Name Styling */
+.name {
+    font-size: 2.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 5px;
+}
+
+/* Job Title Styling */
+.job-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+
+/* Subtle animation */
+.resume-header:hover {
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+
+/* Contact Info */
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    background: white;
+    color: var(--primary);
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+.contact-link:hover {
+    background: var(--secondary);
+    color: white;
+}
+
+/* Resume Sections */
+.resume-content {
+    margin-top: 20px;
+}
+
+.section {
+    background: #f9fbff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--secondary);
+}
+
+.section-title {
+    font-size: 1.3rem;
+    color: var(--primary);
+}

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color:rgb(206, 142, 70);
+            text-align: center;
+            overflow-y: scroll;
+            height: 100vh;
+        }
+        .container {
+            width: 50%;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        h1 {
+            color: #2C3E50;
+            
+        }
+        h2 {
+            color: #2980B9;
+            border-bottom: 2px solid #2980B9;
+            padding-bottom: 5px;
+        }
+        .photo-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        .photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: black;
+            font-size: 12px;
+            font-weight: bold;
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+        }
+        .contact p, .section p, .section li {
+            margin: 5px 0;
+            cursor: pointer;
+        }
+        .section {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .download-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: black;
+            color: white;
+            border: none;
+            cursor: pointer;
+            .app-container {
+                max-width: 1200px;
+                margin: 0 auto;
+                display: flex;
+                gap: 2rem;
+              }
+              
+        
+           
+        
+           
+        
+            
+        
+              
+        
+            
+        
+              
+        
+              
+          
+        
+        </style>
+    <script>
+        
+        function uploadPhoto(event) {
+            let file = event.target.files[0];
+            if (file) {
+                let reader = new FileReader();
+                reader.onload = function(e) {
+                    let profilePic = document.getElementById('profile-pic');
+                    profilePic.style.backgroundImage = 'url(' + e.target.result + ')';
+                    profilePic.textContent = "";
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+        function downloadResume() {
+            const { jsPDF } = window.jspdf;
+            document.querySelector(".download-btn").style.display = "none";
+            html2canvas(document.querySelector(".container"), { useCORS: true, scale: 2 }).then(canvas => {
+                let pdf = new jsPDF('p', 'mm', 'a4');
+                let imgData = canvas.toDataURL("image/png");
+                let imgWidth = 190;
+                let imgHeight = (canvas.height * imgWidth) / canvas.width;
+                pdf.addImage(imgData, 'PNG', 10, 10, imgWidth, imgHeight);
+                pdf.save('resume.pdf');
+                document.querySelector(".download-btn").style.display = "block";
+            });
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js">
+        
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+</head>
+<body>
+    
+    <div class="container" id="resume-content">
+        <div class="photo-container">
+            <label for="photo-upload">
+                <div class="photo" id="profile-pic">Upload Photo</div>
+            </label>
+            <input type="file" id="photo-upload" accept="image/*" style="display: none;" onchange="uploadPhoto(event)">
+        </div>
+        <div class="header">
+            <h1 contenteditable="true">Samira Alcaraz</h1>
+            <h3 contenteditable="true">Mechanical Engineer</h3>
+        </div>
+        <div class="contact">
+            <p contenteditable="true">Phone: +123-456-7890</p>
+            <p contenteditable="true">Email: hello@reallygreatsite.com</p>
+            <p contenteditable="true">Address: 123 Anywhere St., Any City, ST 12345</p>
+            <p contenteditable="true">Portfolio: www.reallygreatsite.com</p>
+        </div>
+        <div class="section">
+            <h2>Professional Summary</h2>
+            <p contenteditable="true">Highly motivated mechanical engineer with expertise in developing advanced materials, optimizing manufacturing processes, and leading cross-functional teams. Passionate about innovation and problem-solving in engineering solutions.</p>
+        </div>
+        <div class="section">
+            <h2>Professional Experience</h2>
+            <p contenteditable="true"><strong>Science and Tech Co.</strong> - Research and Development Engineer (2030-2035)</p>
+            <ul>
+                <li contenteditable="true">Developed advanced materials, increasing product efficiency by 15%.</li>
+                <li contenteditable="true">Conducted experiments and data analysis, publishing three journal papers.</li>
+                <li contenteditable="true">Collaborated with teams to prototype innovative solutions.</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Education</h2>
+            <p contenteditable="true"><strong>North State University</strong> - Master of Science in Mechanical Engineering (2025-2027)</p>
+            <p contenteditable="true"><strong>South City College</strong> - Bachelor of Science in Mechanical Engineering (2021-2025)</p>
+        </div>
+        <div class="section">
+            <h2>Skills</h2>
+            <ul>
+                <li contenteditable="true">Programming Languages: Python, Java, C++</li>
+                <li contenteditable="true">Web Development: HTML, CSS, JavaScript, React</li>
+                <li contenteditable="true">Data Science: Machine Learning, Data Visualization</li>
+                <li contenteditable="true">Tools: Git, Docker, Kubernetes</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Certificates</h2>
+            <ul>
+                <li contenteditable="true">Project Management - The Project Management Institute (2027)</li>
+                <li contenteditable="true">System Optimization - Scrum Learning Society (2028)</li>
+                <li contenteditable="true">Risk Management and Mitigation - Internal Auditors Team (2028)</li>
+                <li contenteditable="true">Vendor Relations - South City College (2030)</li>
+            </ul>
+        </div>
+        <button class="download-btn" onclick="downloadResume()">Download Resume</button>
+    </div>
+</body>
+</html>

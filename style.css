@@ -1,0 +1,78 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Header */
+header {
+    background-color: #333;
+    color: white;
+    padding: 15px 0;
+}
+
+/* Template Container */
+.template-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    gap: 20px;
+}
+
+/* Individual Template */
+.template {
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.template img {
+    width: 150px;
+    height: 200px;
+    border-radius: 5px;
+    transition: transform 0.3s;
+}
+
+/* Hover Effect */
+.template:hover {
+    transform: scale(1.05);
+}
+
+.template img:hover {
+    transform: scale(1.1);
+}
+
+/* Button */
+.use-template {
+    margin-top: 10px;
+    padding: 8px 12px;
+    border: none;
+    background: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.use-template:hover {
+    background: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .template-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .template img {
+        width: 100px;
+        height: 150px;
+    }
+}
